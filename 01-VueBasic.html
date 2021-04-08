@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Basic</title>
+</head>
+
+<body>
+    <div id="app">{{mes}}</div>
+    <div id="box">
+        <span>{{n}}</span><br>
+        <button @click="handle">Click on me!</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        // Let the data change in a second and expect the view to be updated.
+        // Each instance created is equivalent to creating a ViewModel listener.
+        let viewModel = new Vue({
+            // el: element, View that is being monitored(querySelector).
+            el: "#app",
+            // data: Data that is being monitored().
+            data: {
+                mes: "HelloWorld!"
+            }
+        });
+        setTimeout(() => {
+            viewModel.mes = "Hi~";
+        }, 1000);
+    </script>
+    <script>
+        let viewModel2 = new Vue({
+            el: "#box",
+            data: {
+                n: 0
+            },
+            // put view's functions here.
+            methods: {
+                handle() {
+                    // this: viewModel2
+                    this.n++;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

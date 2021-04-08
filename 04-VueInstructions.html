@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Directive</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <input type="text" v-model="msg"> -->
+        <button v-html="msg" @click="handle"></button><br>
+        <img :src="picSrc" alt="" v-if="showPicture">
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let viewModule = new Vue({
+            el: "#app",
+            data: {
+                msg: "hide picture",
+                showPicture: true,
+                picSrc: "download.png"
+            },
+            methods: {
+                handle() {
+                    this.showPicture = !this.showPicture;
+                    this.showPicture !== true ? this.msg = "Show Picture" : this.msg = "Hide Picture";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

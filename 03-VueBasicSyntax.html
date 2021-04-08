@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue basic syntax</title>
+</head>
+
+<body>
+    <div id="app">
+        {{obj.name}}
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        let obj = {
+            name: ""
+        };
+        let viewModule = new Vue({
+            //=> querySelector.
+            el: "#app", // Cannot be the 'HTML' or 'body'.
+            data: {
+                obj
+            }
+        });
+        setTimeout(() => {
+            // viewModule.obj = {
+            //     ...obj,
+            //     name: "linzi"
+            // };
+            viewModule.$set(viewModule.obj, "name", "linzi");
+        }, 1000);
+    </script>
+</body>
+
+</html>
